@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intan Fasihah e-Portfolio | A211082</title>
+    <!-- Google Fonts Inter for a modern tech feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1E293B; /* Deep Slate Blue */
+            --primary-accent: #4F46E5; /* Royal Indigo Accent */
+            --primary-light: #EEF2F6; /* Light grey backdrop token */
+            --bg-body: #F8FAFC; /* Clean Off-White */
+            --text-main: #0F172A; /* Slate-900 High Contrast Text */
+            --text-muted: #64748B; /* Soft Muted Gray */
+            --white: #FFFFFF;
+            --border-color: rgba(226, 232, 240, 0.8);
+            --border-radius: 16px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.625;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 80px 20px 120px 20px;
+            text-align: center;
+        }
+
+        .header-container max-width {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .header-container p {
+            font-size: 1.15rem;
+            color: #94A3B8;
+            font-weight: 400;
+        }
+
+        .meta-dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: -60px auto 40px auto;
+            max-width: 1140px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .meta-component-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius); 
+            padding: 24px 28px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .meta-component-card .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .meta-component-card .meta-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        nav {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 4px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 8px;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.925rem;
+            transition: var(--transition);
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        nav a:hover {
+            color: var(--primary-accent);
+            background-color: var(--primary-light);
+        }
+
+        nav a.active {
+            background-color: var(--primary-accent);
+            color: var(--white);
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -2px rgba(0, 0, 0, 0.01);
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.65rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #334155;
+        }
+
+        ul {
+            margin-left: 24px;
+            margin-bottom: 20px;
+            color: #334155;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .lab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .lab-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 32px;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .lab-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+            border-color: rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .btn:hover {
+            background-color: #0F172A;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-accent);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary-accent);
+        }
+
+        .btn-success {
+            background-color: #16A34A;
+        }
+        .btn-success:hover {
+            background-color: #15803D;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary-accent);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.775rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
+
+        .project-meta {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            border-left: 3px solid var(--border-color);
+            padding-left: 12px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background-color: #F1F5F9;
+            color: #475569;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .project-block {
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+        }
+        .project-block:not(:last-child) {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background-color: var(--white);
+            border-top: 1px solid var(--border-color);
+        }
+
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            background-color: #F1F5F9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #DB2777;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 60px 20px 100px 20px; }
+            .header-container h1 { font-size: 2rem; }
+            section { padding: 24px; }
+            .lab-grid { grid-template-columns: 1fr; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>NUR INTAN FASIHAH BINTI MOHD TAZALLI</h1>
+            <p>Academic Development & System Architecture Tracking Entry</p>
+        </div>
+    </header>
+
+    <div class="meta-dashboard-grid">
+        <div class="meta-component-card">
+            <div class="meta-label">Supervisor</div>
+            <div class="meta-value">Dr. Nazatul Aini</div>
+        </div>
+        <div class="meta-component-card">
+            <div class="meta-label">Major Field</div>
+            <div class="meta-value">Information Technology</div>
+        </div>
+        <div class="meta-component-card">
+            <div class="meta-label">SDG Commitment</div>
+            <div class="meta-value">SDG 11: Sustainable Cities & Communities</div>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#labs" class="active">Laboratory Progression</a></li>
+            <li><a href="#projects">Project Milestones</a></li>
+            <li><a href="#skills">Tech Stack</a></li>
+            <li><a href="#reflection">Core Reflection</a></li>
+            <li><a href="#resources">References</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- LABORATORY PROGRESSION SECTION -->
+        <section id="labs">
+            <h2>Laboratory Progression (Labs 1–5)</h2>
+            <p style="color: var(--text-muted);">Development journey tracking from static layouts to persistent local repository integrations.</p>
+            
+            <div class="lab-grid">
+                <!-- LAB 1 -->
+                <div class="lab-card">
+                    <div>
+                        <span class="tag">Lab 1</span>
+                        <h3>Declarative UI Layout Architecture</h3>
+                        <p><strong>Core Focus:</strong> Structural layout orchestration utilizing Jetpack Compose primitives (Row, Column, Box), explicit Modifier chaining, and layout constraints.</p>
+                        <p><strong>Technical Synthesis:</strong> Shifted from imperative XML to declarative composition trees. Reverse-engineered UI mockups into dynamic layout structures to form the visual baseline for the OnRoad application.</p>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://youtu.be/j8dr2q_RaBc" class="btn btn-outline" target="_blank">View Video</a>
+                    </div>
+                </div>
+
+                <!-- LAB 2 -->
+                <div class="lab-card">
+                    <div>
+                        <span class="tag">Lab 2</span>
+                        <h3>Reactive State Management</h3>
+                        <p><strong>Core Focus:</strong> Implementation of runtime tracking via <code>remember { mutableStateOf() }</code>, click listeners, and state hoisting patterns.</p>
+                        <p><strong>Technical Synthesis:</strong> Created interactive text input fields and buttons. Prevented redundant recompositions by hoisting transient state properties, ensuring efficient UI updates and reliable event handling pipelines.</p>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://youtu.be/HwLT4kvDAqI" class="btn btn-outline" target="_blank">View Video</a>
+                    </div>
+                </div>
+
+                <!-- LAB 3 -->
+                <div class="lab-card">
+                    <div>
+                        <span class="tag">Lab 3</span>
+                        <h3>Material Design System Customization</h3>
+                        <p><strong>Core Focus:</strong> Defining cohesive Material Theme color tokens, custom typography scales, programmatic shapes, elevations, and dynamic card transitions using <code>animateContentSize()</code>.</p>
+                        <p><strong>Technical Synthesis:</strong> Customized application themes to enforce uniform branding. Utilized animated Card containers to cleanly structure and toggle dense pieces of transit information.</p>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://youtu.be/VW_2_BqzgnQ" class="btn btn-outline" target="_blank">View Video</a>
+                    </div>
+                </div>
+
+                <!-- LAB 4 -->
+                <div class="lab-card">
+                    <div>
+                        <span class="tag">Lab 4</span>
+                        <h3>Navigational Routing Graphs</h3>
+                        <p><strong>Core Focus:</strong> Decoupled application navigation handled via <code>NavHostController</code>, centralized screen state management within Jetpack ViewModels, and safe type-parameter routing.</p>
+                        <p><strong>Technical Synthesis:</strong> Restructured the app into an MVVM architecture. Isolated UI presentation from state tracking to ensure the user's data persists cleanly through device configuration changes.</p>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://youtu.be/QBYJSP23e7o" class="btn btn-outline" target="_blank">View Video</a>
+                    </div>
+                </div>
+
+                <!-- LAB 5 -->
+                <div class="lab-card">
+                    <div>
+                        <span class="tag">Lab 5</span>
+                        <h3>Object-Relational Persistence Storage</h3>
+                        <p><strong>Core Focus:</strong> Local database caching via Room SQLite abstractions, Data Access Object (DAO) endpoints, repository patterns, and <code>StateFlow</code> reactive data streams.</p>
+                        <p><strong>Technical Synthesis:</strong> Built an offline-first database framework. Structured transactional queries to read, write, and safely stream local travel entities without interrupting user interactions.</p>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://youtu.be/3sz9ud6K0HU" class="btn btn-outline" target="_blank">View Video</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT MILESTONES SECTION -->
+        <section id="projects">
+            <h2>Project Milestones</h2>
+            
+            <!-- PROJECT 1 -->
+            <div class="project-block">
+                <span class="tag" style="background-color: var(--primary-light); color: var(--primary);">Project Phase 1</span>
+                <h3>OnRoad V1: Architectural Core & Navigational Foundation</h3>
+                <div class="project-meta">Targeting SDG Target 11.2: Accessible, safe, and sustainable public transport infrastructures.</div>
+                <p><strong>Problem Engineering:</strong> Urban transit apps often face fragmented information loops and fragile state management, leading to visual data loss or performance degradation during complex screen navigation loops.</p>
+                <p><strong>Implementation Strategy:</strong> Implemented a 5-screen MVVM architectural framework utilizing centralized state handling with Jetpack ViewModels. Established clear navigation pathways while keeping layout layers modular and robust.</p>
+                <div class="btn-group">
+                    <a href="https://github.com/IntanFasihah/A211082_DR.NAZATUL_PROJECT1" class="btn" target="_blank">GitHub Repository</a>
+                    <a href="https://youtu.be/placeholder-project1" class="btn btn-outline" target="_blank">View Video</a>
+                </div>
+            </div>
+
+            <!-- PROJECT 2 (STANDARDIZED WITH VERBATIM REF TO image_6c4fbd.png) -->
+            <div class="project-block">
+                <span class="tag" style="background-color: #DCFCE7; color: #15803D;">Project Phase 2</span>
+                <h3>OnRoad V2: Full Production App (Cloud & Hardware)</h3>
+                <div class="project-meta">Advanced Build: Cloud Database, Device Sensors, and Live Weather API.</div>
+                
+                <p><strong>The Problem (SDG 11 Extension):</strong> Basic transport apps fail without web access or physical context. Modern applications must connect hardware sensors, offline caching, and live cloud syncing to serve users reliably on the road.</p>
+
+                <h3>Key Features Built</h3>
+                <ul>
+                    <li><strong>8 Distinct Screens:</strong> Created map interfaces, custom profile pages, traffic alert dashboards, and calculation layouts.</li>
+                    <li><strong>Room Caching:</strong> Added safe, local SQLite storage so the app stays functional without network coverage.</li>
+                    <li><strong>Firebase Cloud Database:</strong> Connected live cloud synchronization so users can post and read crowdsourced reports instantly.</li>
+                    <li><strong>GPS Hardware Integration:</strong> Set up native device location tracking using low-level threads to pull real-time coordinates.</li>
+                    <li><strong>Fuel & Eco Calculator:</strong> Built a tool that calculates fuel use against regional gas prices to encourage sustainable driving habits.</li>
+                </ul>
+
+                <div class="btn-group">
+                    <a href="https://github.com/IntanFasihah/A211082_DR.NAZATUL_PROJECT2" class="btn" target="_blank">GitHub Repository</a>
+                    <a href="https://youtu.be/apmgkUEbcfQ" class="btn btn-outline" target="_blank">Watch Video</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH STACK DETAILS -->
+        <section id="skills">
+            <h2>Technologies & Skills Stack</h2>
+            <p style="color: var(--text-muted); margin-bottom: 24px;">Architectural frameworks and libraries utilized to build this enterprise-ready mobile solution:</p>
+            <div class="tech-tags">
+                <span class="tech-tag">Kotlin Language Architecture</span>
+                <span class="tech-tag">Jetpack Compose UI Toolkit</span>
+                <span class="tech-tag">Android Jetpack Lifecycle Architecture</span>
+                <span class="tech-tag">Jetpack Compose Navigation Graph</span>
+                <span class="tech-tag">Room Database ORM</span>
+                <span class="tech-tag">SQLite Engine</span>
+                <span class="tech-tag">Firebase Firestore Cloud Service</span>
+                <span class="tech-tag">Android Location Framework (GPS)</span>
+                <span class="tech-tag">StateFlow Asynchronous Pipelines</span>
+                <span class="tech-tag">Material Design 3 Components</span>
+            </div>
+        </section>
+
+        <!-- REFLECTION & LEARNING JOURNEY -->
+        <section id="reflection">
+            <h2>Reflection & Learning Journey</h2>
+            
+            <h3>1. Personal Growth & Architectural Development Journey</h3>
+            <p>Advancing from static UI rendering in Lab 1 to building a connected multi-tier architecture in Project 2 redefined my coding workflows. Moving away from localized data layouts toward asynchronous repository pipelines taught me the value of structured data tracking patterns and sound presentation abstractions.</p>
+
+            <h3>2. Technical Hurdles & Engineering Resolutions</h3>
+            <p>Managing asynchronous database operations alongside remote cloud writes threatened race conditions on the main UI thread. I resolved this by offloading database operations onto background thread contexts via Kotlin Coroutines, exposing state safely through lifecycle-aware <code>StateFlow</code> objects to achieve fluid layout rendering.</p>
+
+            <h3>3. Sustainable Development Goals (SDG) Societal Impact</h3>
+            <p>The OnRoad application directly aligns with SDG 11. By merging real-time coordinate sensors with an analytical fuel calculator, the app helps road users minimize traffic idling and optimize trip efficiency, addressing city-wide traffic bottlenecks and carbon output concerns.</p>
+
+            <h3>4. Academic Integrity & AI Transparency Statement</h3>
+            <p>Generative AI utilities were used exclusively as syntax checkers, error logs diagnostics, and design layout inspiration models. All application structures, schemas, database entities, repository architectures, and multi-screen components were designed and managed manually to preserve authentic code ownership and technical agility.</p>
+        </section>
+
+        <!-- RESOURCES AND REFERENCES -->
+        <section id="resources">
+            <h2>Resources & References</h2>
+            <ul style="list-style-type: square; margin-left: 20px;">
+                <li><strong>Google Android Developer Documentation:</strong> Specifications for Jetpack Compose layout components, view state tokens, and robust repository abstractions. <a href="https://developer.android.com/" target="_blank" style="color: var(--primary-accent);">developer.android.com</a></li>
+                <li><strong>Firebase Cloud Core Documentation:</strong> Guidelines for managing remote Firestore document structures, live event sync observers, and database rule structures. <a href="https://firebase.google.com/docs/firestore" target="_blank" style="color: var(--primary-accent);">firebase.google.com/docs/firestore</a></li>
+                <li><strong>Room Persistence Abstraction Manuals:</strong> Documentation for thread-safe SQLite data schemas, localized data caching configurations, and coroutine bindings.</li>
+                <li><strong>United Nations Sustainable Development Goals Index:</strong> Core parameters, indicators, and framework metrics mapped directly to global sustainable transport target definitions.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Nur Intan Fasihah (A211082) | Mobile Programming Portfolio Entry. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth highlighting logic for navigation links based on active section
+        window.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    if (entry.intersectionRatio > 0.2) {
+                        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                        const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+                        if (activeLink) activeLink.classList.add('active');
+                    }
+                });
+            }, { threshold: [0.2, 0.5] });
+
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
